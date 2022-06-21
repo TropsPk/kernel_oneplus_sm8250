@@ -188,10 +188,54 @@ ifeq ($(OPLUS_FEATURE_OP_SPECIFIC_AUDIO_KERNEL),yes)
 KBUILD_CFLAGS += -DOPLUS_FEATURE_OP_SPECIFIC_AUDIO_KERNEL
 endif
 
-# These are set as plain make variables by oplus_native_features.mk (the Android
-# build exports them as environment variables). The sub-makes of Kbuild only see
-# exported variables, and net/Makefile, drivers/scsi/ufs/Makefile and
-# oplus/kernel_4.19/ufs/Makefile test them with ifneq ($(VAR),).
-export OPLUS_FEATURE_WIFI_ROUTERBOOST
-export OPLUS_FEATURE_UFS_SHOW_LATENCY
-export OPLUS_FEATURE_PADL_STATISTICS
+ifeq ($(OPLUS_FEATURE_WIFI_LUCKYMONEY),yes)
+export OPLUS_FEATURE_WIFI_LUCKYMONEY=y
+endif
+
+ifeq ($(OPLUS_FEATURE_DHCP),yes)
+export OPLUS_FEATURE_DHCP=y
+endif
+
+ifeq ($(OPLUS_FEATURE_WIFI_CAP_CENTER),yes)
+export OPLUS_FEATURE_WIFI_CAP_CENTER=y
+endif
+
+ifeq ($(OPLUS_FEATURE_WIFI_ROUTERBOOST),yes)
+export OPLUS_FEATURE_WIFI_ROUTERBOOST=y
+endif
+
+ifeq ($(OPLUS_FEATURE_UFS_SHOW_LATENCY),yes)
+export OPLUS_FEATURE_UFS_SHOW_LATENCY=y
+endif
+
+ifeq ($(OPLUS_FEATURE_PADL_STATISTICS),yes)
+export OPLUS_FEATURE_PADL_STATISTICS=y
+endif
+
+ifeq ($(OPLUS_FEATURE_UFSPLUS),yes)
+export OPLUS_FEATURE_UFSPLUS=y
+endif
+
+ifeq ($(CONFIG_OPLUS_FEATURE_SAUPWK),yes)
+export CONFIG_OPLUS_FEATURE_SAUPWK=y
+endif
+
+ifeq ($(OPLUS_FEATURE_MEMLEAK_DETECT),yes)
+export OPLUS_FEATURE_MEMLEAK_DETECT=yes
+endif
+
+ifeq ($(OPLUS_FEATURE_PROCESS_RECLAIM),yes)
+export OPLUS_FEATURE_PROCESS_RECLAIM=yes
+endif
+
+ifeq ($(OPLUS_FEATURE_ADFR_KERNEL),yes)
+export OPLUS_FEATURE_ADFR_KERNEL=yes
+endif
+
+ifeq ($(OPLUS_FEATURE_ADFR_KERNEL),yes)
+export OPLUS_FEATURE_ADFR_KERNEL=yes
+endif
+
+ifeq ($(OPLUS_FEATURE_PXLW_IRIS5),yes)
+export OPLUS_FEATURE_PXLW_IRIS5=yes
+endif
