@@ -53,3 +53,7 @@ obj-y += soc/
 obj-y += dsp/
 obj-y += ipc/
 obj-y += asoc/
+
+obj-y += ../../oplus/kernel_4.19/audio/
+
+subdir-ccflags-y += -Wno-unused-function

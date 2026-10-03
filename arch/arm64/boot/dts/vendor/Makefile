@@ -7,7 +7,9 @@ vendor := $(srctree)/$(src)
 #	subdir-y += qcom
 #endif
 #else
-subdir-y += qcom
+# vendor/qcom is not compiled: it includes camera/ and display/ through symlinks into
+# the camera-devicetree/display-devicetree repos, which are not part of this tree
+#subdir-y += qcom
 ifeq ($(strip $(BRAND_SHOW_FLAG)), oneplus)
 #oneplus SM8250 project
 subdir-y += 19821
