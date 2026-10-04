@@ -15,6 +15,8 @@
 ### ------------------------------------------------------------------------------
 ##################################################################################
 
+export BRAND_SHOW_FLAG=oneplus
+
 -include oplus_native_features.mk
 
 ###ifdef OPLUS_ARCH_INJECT
@@ -139,7 +141,6 @@ endif
 
 
 $(foreach myfeature,$(ALLOWED_MCROS),\
-         $(warning make $(myfeature) to be a macro here) \
          $(eval KBUILD_CFLAGS += -D$(myfeature)) \
          $(eval KBUILD_CPPFLAGS += -D$(myfeature)) \
          $(eval CFLAGS_KERNEL += -D$(myfeature)) \
@@ -187,4 +188,56 @@ endif
 
 ifeq ($(OPLUS_FEATURE_OP_SPECIFIC_AUDIO_KERNEL),yes)
 KBUILD_CFLAGS += -DOPLUS_FEATURE_OP_SPECIFIC_AUDIO_KERNEL
+endif
+
+ifeq ($(OPLUS_FEATURE_WIFI_LUCKYMONEY),yes)
+export OPLUS_FEATURE_WIFI_LUCKYMONEY=y
+endif
+
+ifeq ($(OPLUS_FEATURE_DHCP),yes)
+export OPLUS_FEATURE_DHCP=y
+endif
+
+ifeq ($(OPLUS_FEATURE_WIFI_CAP_CENTER),yes)
+export OPLUS_FEATURE_WIFI_CAP_CENTER=y
+endif
+
+ifeq ($(OPLUS_FEATURE_WIFI_ROUTERBOOST),yes)
+export OPLUS_FEATURE_WIFI_ROUTERBOOST=y
+endif
+
+ifeq ($(OPLUS_FEATURE_UFS_SHOW_LATENCY),yes)
+export OPLUS_FEATURE_UFS_SHOW_LATENCY=y
+endif
+
+ifeq ($(OPLUS_FEATURE_PADL_STATISTICS),yes)
+export OPLUS_FEATURE_PADL_STATISTICS=y
+endif
+
+ifeq ($(OPLUS_FEATURE_UFSPLUS),yes)
+export OPLUS_FEATURE_UFSPLUS=y
+endif
+
+ifeq ($(CONFIG_OPLUS_FEATURE_SAUPWK),yes)
+export CONFIG_OPLUS_FEATURE_SAUPWK=y
+endif
+
+ifeq ($(OPLUS_FEATURE_MEMLEAK_DETECT),yes)
+export OPLUS_FEATURE_MEMLEAK_DETECT=yes
+endif
+
+ifeq ($(OPLUS_FEATURE_PROCESS_RECLAIM),yes)
+export OPLUS_FEATURE_PROCESS_RECLAIM=yes
+endif
+
+ifeq ($(OPLUS_FEATURE_ADFR_KERNEL),yes)
+export OPLUS_FEATURE_ADFR_KERNEL=yes
+endif
+
+ifeq ($(OPLUS_FEATURE_ADFR_KERNEL),yes)
+export OPLUS_FEATURE_ADFR_KERNEL=yes
+endif
+
+ifeq ($(OPLUS_FEATURE_PXLW_IRIS5),yes)
+export OPLUS_FEATURE_PXLW_IRIS5=yes
 endif
