@@ -53,3 +53,5 @@ obj-y += soc/
 obj-y += dsp/
 obj-y += ipc/
 obj-y += asoc/
+# The Oplus audio drivers need the CONFIG_ symbols that konaauto.conf exports above.
+obj-y += ../../oplus/kernel_4.19/audio/

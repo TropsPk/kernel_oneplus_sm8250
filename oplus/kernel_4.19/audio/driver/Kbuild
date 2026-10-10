@@ -9,7 +9,7 @@ endif
 ifeq ($(KERNEL_BUILD), 1)
 	# These are configurable via Kconfig for kernel-based builds
 	# Need to explicitly configure for Android-based builds
-	AUDIO_BLD_DIR := $(shell pwd)/kernel/msm-4.19
+	AUDIO_BLD_DIR := $(srctree)
 	AUDIO_ROOT := $(AUDIO_BLD_DIR)/techpack/audio
 endif
 
@@ -59,7 +59,7 @@ EXTRA_CFLAGS += -Wheader-guard
 endif
 
 # Module information used by KBuild framework
-obj-m += audio_extend_dlkm.o
+obj-y += audio_extend_dlkm.o
 audio_extend_dlkm-y := $(AUDIO_EXTEND_OBJS)
 
 # inject some build related information
