@@ -139,7 +139,6 @@ endif
 
 
 $(foreach myfeature,$(ALLOWED_MCROS),\
-         $(warning make $(myfeature) to be a macro here) \
          $(eval KBUILD_CFLAGS += -D$(myfeature)) \
          $(eval KBUILD_CPPFLAGS += -D$(myfeature)) \
          $(eval CFLAGS_KERNEL += -D$(myfeature)) \
@@ -188,3 +187,11 @@ endif
 ifeq ($(OPLUS_FEATURE_OP_SPECIFIC_AUDIO_KERNEL),yes)
 KBUILD_CFLAGS += -DOPLUS_FEATURE_OP_SPECIFIC_AUDIO_KERNEL
 endif
+
+# These are set as plain make variables by oplus_native_features.mk (the Android
+# build exports them as environment variables). The sub-makes of Kbuild only see
+# exported variables, and net/Makefile, drivers/scsi/ufs/Makefile and
+# oplus/kernel_4.19/ufs/Makefile test them with ifneq ($(VAR),).
+export OPLUS_FEATURE_WIFI_ROUTERBOOST
+export OPLUS_FEATURE_UFS_SHOW_LATENCY
+export OPLUS_FEATURE_PADL_STATISTICS

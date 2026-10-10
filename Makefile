@@ -460,6 +460,11 @@ KBUILD_CPPFLAGS += -DVENDOR_EDIT
 CFLAGS_KERNEL +=   -DVENDOR_EDIT
 CFLAGS_MODULE +=   -DVENDOR_EDIT
 # endif
+# The Android build environment provides BRAND_SHOW_FLAG. A standalone build
+# has no such environment, so default to OnePlus (it picks the dts device list
+# and the charger/haptic sources). Override with BRAND_SHOW_FLAG=... if needed.
+BRAND_SHOW_FLAG ?= oneplus
+export BRAND_SHOW_FLAG
 ifeq ($(BRAND_SHOW_FLAG),oneplus)
 KBUILD_CFLAGS += -DOPLUS_CUSTOM_OP_DEF
 endif
