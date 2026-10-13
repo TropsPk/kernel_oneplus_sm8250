@@ -56,7 +56,7 @@ static inline void debug_log(struct task_struct *task, u64 value, const char *ta
 		debug_systrace_c(task->pid, tag);
 }
 
-static bool is_audio_perf_enable(void)
+static bool is_audio_perf_enable()
 {
 	if (unlikely(!sysctl_sched_assist_enabled))
 		return false;
@@ -67,7 +67,7 @@ static bool is_audio_perf_enable(void)
 	return true;
 }
 
-static bool is_audio_perf_status_on(void)
+static bool is_audio_perf_status_on()
 {
 	return is_audio_perf_enable() && sa_audio_perf_status;
 }
@@ -127,7 +127,7 @@ static void remove_pid(int pid)
 	mutex_unlock(&debug_pids_mutex);
 }
 
-static void pids_release(void)
+static void pids_release()
 {
 	struct pid_node *pos, *tmp;
 
@@ -144,7 +144,7 @@ static void pids_release(void)
 	mutex_unlock(&debug_pids_mutex);
 }
 
-static bool pids_init(void)
+static bool pids_init()
 {
 	if (debug_pids)
 		return true;
