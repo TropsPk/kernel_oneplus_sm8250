@@ -2,12 +2,19 @@ comment "Qualcomm Atheros CLD WLAN module"
 
 config QCA_CLD_WLAN
 
-	tristate "Qualcomm Atheros CLD WLAN module"
+	bool "Qualcomm Atheros CLD WLAN module"
 	default n
 	help
 	Add support for the Qualcomm Atheros CLD WLAN module
 
-if QCA_CLD_WLAN != n
+if QCA_CLD_WLAN
+
+config QCA_CLD_WLAN_PROFILE
+	string "Configuration profile for Qualcomm Atheros CLD WLAN module"
+	default "default"
+	help
+	  Profile used to configure the driver, one of the files in
+	  drivers/staging/qcacld-3.0/configs (without the _defconfig suffix).
 
 config QCACLD_WLAN_LFR3
 	bool "Enable the WLAN Legacy Fast Roaming feature Version 3"
