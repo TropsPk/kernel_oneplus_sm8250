@@ -27,7 +27,8 @@
 #subdir-y += ti
 #subdir-y += xilinx
 #subdir-y += zte
-subdir-y += qcom
+# The legacy upstream Qualcomm boards are not part of this build
+#subdir-y += qcom
 
 
 dtstree		:= $(srctree)/$(src)
