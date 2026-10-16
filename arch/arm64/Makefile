@@ -149,10 +149,11 @@ endif
 KBUILD_DTBS	:= dtbs
 
 ifeq ($(CONFIG_BUILD_ARM64_DT_OVERLAY),y)
+KBUILD_DTBO_IMG := dtbo.img
 export DTC_FLAGS := -@
 endif
 
-all:	$(KBUILD_DTBS) $(KBUILD_TARGET) dtb
+all:	$(KBUILD_DTBS) $(KBUILD_TARGET) dtb $(KBUILD_DTBO_IMG)
 
 Image: vmlinux
 	$(Q)$(MAKE) $(build)=$(boot) $(boot)/$@
