@@ -177,6 +177,9 @@ dtbs_install:
 dtb: dtbs
 	$(Q)$(MAKE) $(build)=$(boot) $(boot)/$@
 
+dtbo.img: dtbs
+	$(Q)$(MAKE) $(build)=$(boot) $(boot)/$@
+
 Image-dtb: vmlinux scripts dtbs
 	$(Q)$(MAKE) $(build)=$(boot) $(boot)/$@
 
