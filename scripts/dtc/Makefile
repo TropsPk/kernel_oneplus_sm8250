@@ -11,7 +11,9 @@ dtc-objs	:= dtc.o flattree.o fstree.o data.o livetree.o treesource.o \
 dtc-objs	+= dtc-lexer.lex.o dtc-parser.tab.o
 
 # Source files need to get at the userspace version of libfdt_env.h to compile
-HOST_EXTRACFLAGS := -I$(src)/libfdt
+# dtc 1.5.1 can write YAML, which needs libyaml and yamltree.c; the kernel build
+# has neither, so leave that output format out
+HOST_EXTRACFLAGS := -I$(src)/libfdt -DNO_YAML
 
 # Generated files need one more search path to include headers in source tree
 HOSTCFLAGS_dtc-lexer.lex.o := -I$(src)
